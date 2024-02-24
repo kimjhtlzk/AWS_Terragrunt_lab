@@ -20,6 +20,7 @@ resource "aws_iam_group_policy_attachment" "iam_group_policy_attach" {
   group       = each.value.group_name
   policy_arn = each.value.policy_arn
 
+  depends_on = [ aws_iam_group.group ]
 }
 resource "aws_iam_user_group_membership" "iam_user_group_attach" {
   for_each = { 
@@ -35,5 +36,7 @@ resource "aws_iam_user_group_membership" "iam_user_group_attach" {
 
   user  = each.value.user_name
   groups = [each.value.group_name]
+
+  depends_on = [ aws_iam_group.group ]
 }
 

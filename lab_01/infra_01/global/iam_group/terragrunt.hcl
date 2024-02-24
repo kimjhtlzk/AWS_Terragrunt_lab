@@ -17,7 +17,13 @@ dependency "iam_custom_policy" {
   }
   mock_outputs_allowed_terraform_commands = ["init", "plan"]
 }
-
+dependency "iam_user" {
+  config_path = find_in_parent_folders("iam_user")
+  mock_outputs = {
+    # mock any necessary outputs here
+  }
+  mock_outputs_allowed_terraform_commands = ["init", "plan"]
+}
 // iam_group name 값이 변경되면 재생성 됩니다.
 
 inputs = {
