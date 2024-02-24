@@ -1,5 +1,5 @@
 terraform {
-  source = "/Users/hann/hann_labs/terrform_labs/terragrunt_labs/lab_01/module/vpc_endpoint/ver_1.0.0"
+  source = "/Users/hann/hann_lab/terrform_labs/terragrunt_labs/terragrunt_lab/lab_01/module/vpc_endpoint/ver_1.0.0"
 }
 
 include "root" {
@@ -12,6 +12,10 @@ locals {
 
 dependency "vpc" {
   config_path = find_in_parent_folders("vpc")
+  mock_outputs = {
+    # vpc_id = "vpc-EXAMPLE"
+  }
+  mock_outputs_allowed_terraform_commands = ["init", "plan"]
 }
 
 // vpc_endpoint는 vpc 값이 변경되면 재생성 됩니다.

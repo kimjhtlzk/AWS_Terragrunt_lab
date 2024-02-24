@@ -12,6 +12,10 @@ output "subnets" {
   value = aws_subnet.subnet
 }
 
+output "subnets_ids" {
+  value = { for ids in aws_subnet.subnet : ids.tags["Name"] => ids.id }
+}
+
 output "vpc_ipv6_cidr_block" {
   value = {
     for k, vpc in aws_vpc.vpc : 
