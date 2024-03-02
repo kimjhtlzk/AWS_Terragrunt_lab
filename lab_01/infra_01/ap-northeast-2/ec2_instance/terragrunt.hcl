@@ -53,7 +53,7 @@ inputs = {
       name                        = "rnd-ec2-1"
       ami                         = "ami-097bf0ec147165215"
       instance_type               = "t3.small"
-      availability_zone           = "ap-northeast-2a"
+      availability_zone           = "${local.aws_region}a"
 
       subnet                      = dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-1"]
       private_ip                  = "10.11.11.11"

@@ -15,7 +15,7 @@ inputs = {
   ebs = [
     # {
     #   name              = "rnd-ebs-1"
-    #   availability_zone = "ap-northeast-2a"
+    #   availability_zone = "${local.aws_region}a"
     #   type              = "gp3"   # standard, gp2, gp3, io1, io2
     #   size              = 40
     #   # If specified as null, the default value is used, or no value is used.
