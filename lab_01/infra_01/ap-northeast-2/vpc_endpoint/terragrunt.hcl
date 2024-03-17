@@ -1,5 +1,5 @@
 terraform {
-  source = "/Users/hann/hann_lab/terrform_labs/terragrunt_labs/terragrunt_lab/lab_01/module/vpc_endpoint/ver_1.0.0"
+  source = "${dirname(find_in_parent_folders())}/modules/vpc_endpoint/ver_1.0.0"
 }
 
 include "root" {
