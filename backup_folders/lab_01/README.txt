@@ -30,6 +30,8 @@
     terragrunt plan
 
 
-// 다음 명령은 명령어를 실행하는 위치에서 현재 경로를 기준으로 하위의 모든 곳에서 cache 또는 lock.hcl을 삭제하는 명령이다.
+// Terragrunt init시 발생할 수 있는 오류들 중 종속성 오류가 발생할 수 있다.
+이 오류는 그 전에 생성된 .terragrunt-cache 폴더들로 인해 발생하는 경우가 있고, 다음 명령을 통해 cache폴더를 삭제해준다.
+다음 명령은 명령어를 실행하는 위치에서 현재 경로를 기준으로 하위의 모든 곳에서 cache폴더를 삭제하는 명령이다.
 find . -name '.terragrunt-cache' -type d -exec rm -rf {} +
 find . -name '.terraform.lock.hcl' -type f -exec rm -rf {} +
