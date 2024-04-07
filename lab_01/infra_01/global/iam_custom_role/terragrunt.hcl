@@ -130,7 +130,24 @@ inputs = {
         ]
       })
     },
-
+    {
+      name    = "eksClusterRole"
+      attach_policy = [
+        lookup(dependency.iam_custom_policy.outputs.policy_arn, "AmazonEKSClusterPolicy")
+      ] # null (or) policy name
+      assume_role_policy  = jsonencode({
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "eks.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        ]
+      })
+    },
 
 
 
