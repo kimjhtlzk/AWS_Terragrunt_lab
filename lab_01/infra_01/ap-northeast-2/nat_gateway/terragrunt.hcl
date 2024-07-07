@@ -30,12 +30,12 @@ dependency "elastic_ip" {
 
 inputs = {
   ngw = [
-    # {
-    #   name        = "ngw-rnd-vpc-1"
-    #   eip         = dependency.elastic_ip.outputs.eip_id["rnd-eip-2"]
-    #   subnets     = dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-1"],    
-    #   private_ip  = "10.11.11.250"
-    # },
+    {
+      name        = "ngw-rnd-vpc-1"
+      eip         = dependency.elastic_ip.outputs.eip_id["rnd-eip-2"]
+      subnets     = dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-1"],    
+      private_ip  = "10.11.11.250"
+    },
 
   ]
 }

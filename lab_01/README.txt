@@ -38,20 +38,24 @@
 
 
 // 다음 명령은 명령어를 실행하는 위치에서 현재 경로를 기준으로 하위의 모든 곳에서 cache 또는 lock.hcl을 삭제하는 명령이다.
-find . -name '.terragrunt-cache' -type d -exec rm -rf {} +
-find . -name '.terraform.lock.hcl' -type f -exec rm -rf {} +
+    find . -name '.terragrunt-cache' -type d -exec rm -rf {} +
+    find . -name '.terraform.lock.hcl' -type f -exec rm -rf {} +
 
 
 // 모듈 변경 작업 전체적인 과정
-    //모듈 버전을 변경하고자하는 리소스 dir로 이동
-    cd /Users/hann/hann_lab/terrform_labs/terragrunt_labs/terragrunt_lab/lab_01/infra_01/ap-northeast-2/vpc
-    //state 파일 백업
-    tg state pull > /Users/hann/hann_lab/terrform_labs/terragrunt_labs/terragrunt_lab/lab_01/state_backup/infra_01-ap-northeast-2-vpc-backup.tfstate
-    //기존 state 정보들 삭제
-    find . -name '.terragrunt-cache' -type d -exec rm -rf {} +
-    find . -name '.terraform.lock.hcl' -type f -exec rm -rf {} +
-    // 여기서 리소스 코드상에서 모듈의 버전을 변경한다
-    // 백업해둔 state파일 push 및 no change 검증
-    tg init
-    tg state push /Users/hann/hann_lab/terrform_labs/terragrunt_labs/terragrunt_lab/lab_01/state_backup/infra_01-ap-northeast-2-vpc-backup.tfstate
-    tg apply -parallelism=5000
+    - 모듈 버전을 변경하고자하는 리소스 dir로 이동
+        cd /infra_01/ap-northeast-2/vpc
+
+    - state 파일 백업
+        tg state pull > /lab_01/state_backup/infra_01-ap-northeast-2-vpc-backup.tfstate
+    
+    - 기존 state 정보들 삭제
+        find . -name '.terragrunt-cache' -type d -exec rm -rf {} +
+        find . -name '.terraform.lock.hcl' -type f -exec rm -rf {} +
+   
+    - 여기서 리소스 코드상에서 모듈의 버전을 변경한다
+    
+    - 백업해둔 state파일 push 및 no change 검증
+        tg init
+        tg state push /lab_01/state_backup/infra_01-ap-northeast-2-vpc-backup.tfstate
+        tg apply -parallelism=5000
