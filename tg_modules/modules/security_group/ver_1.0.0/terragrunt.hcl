@@ -1,5 +1,5 @@
 terraform {
-  source = "${dirname(find_in_parent_folders())}/modules/security_group/ver_1.0.0"
+  source = "${dirname(find_in_parent_folders())}/modules/security_group/ver_2.0.0"
 }
 
 include "root" {
