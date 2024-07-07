@@ -22,33 +22,33 @@ dependency "vpc" {
 
 inputs = {
   security_group = [
-    {
-      name  = "rnd-sg-1"
-      vpc   = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
-      ingress_rules = {
-        1 = {
-          rule_name   = "basic-inbound-vpn"
-          cidr_blocks = "61.74.61.205/32"
-          protocol    = "tcp"
-          port_range   = ["22-23", "25-27"]
-        },
-        2 = {
-          rule_name   = "basic-inbound-vpn2"
-          cidr_blocks = "62.74.61.204/32"
-          protocol    = "tcp"
-          port_range   = ["40-41", "44-44"]
-        },
-      }
-      egress_rules = {
-        1 = {
-          rule_name   = "basic-outboud-01"
-          cidr_blocks = "0.0.0.0/0"
-          protocol    = "tcp"
-          port_range   = ["22-23", "25-27"]
-        },
-      }
+    # {
+    #   name  = "rnd-sg-1"
+    #   vpc   = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
+    #   ingress_rules = {
+    #     1 = {
+    #       rule_name   = "basic-inbound-vpn1"
+    #       cidr_blocks = "62.74.61.204/32"
+    #       protocol    = "tcp"
+    #       port_range   = ["24-27"]
+    #     },
+    #     2 = {
+    #       rule_name   = "basic-inbound-vpn2"
+    #       cidr_blocks = "62.74.61.204/32"
+    #       protocol    = "tcp"
+    #       port_range   = ["40-41"]
+    #     },
+    #   }
+    #   egress_rules = {
+    #     1 = {
+    #       rule_name   = "basic-outboud-01"
+    #       cidr_blocks = "0.0.0.0/0"
+    #       protocol    = "tcp"
+    #       port_range   = ["22-23"]
+    #     },
+    #   }
 
-    },
+    # },
 
   ]
 }

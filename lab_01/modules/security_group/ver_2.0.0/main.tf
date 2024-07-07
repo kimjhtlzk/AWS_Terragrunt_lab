@@ -13,24 +13,27 @@ resource "aws_security_group" "sg" {
   vpc_id = each.value.vpc
 }
 
-resource "aws_vpc_security_group_ingress_rule" "ingress_rules" {
+resource "aws_security_group_rule" "ingress_rules" {
   for_each = { for rule in local.ingress_rules_flat : rule.rule_name => rule }
 
   description       = each.value.rule_name
   from_port         = split("-", each.value.port_range[0])[0]
   to_port           = split("-", each.value.port_range[0])[1]
-  ip_protocol       = each.value.protocol
-  cidr_ipv4         = each.value.cidr_blocks
+  protocol          = each.value.protocol
+  cidr_blocks       = split(",", each.value.cidr_blocks)
   security_group_id = aws_security_group.sg[each.value.sg_name].id
+  type              = "ingress"
 }
 
-resource "aws_vpc_security_group_egress_rule" "egress_rules" {
+resource "aws_security_group_rule" "egress_rules" {
   for_each = { for rule in local.egress_rules_flat : rule.rule_name => rule }
 
   description       = each.value.rule_name
   from_port         = split("-", each.value.port_range[0])[0]
   to_port           = split("-", each.value.port_range[0])[1]
-  ip_protocol       = each.value.protocol
-  cidr_ipv4         = each.value.cidr_blocks
+  protocol          = each.value.protocol
+  cidr_blocks       = split(",", each.value.cidr_blocks)
   security_group_id = aws_security_group.sg[each.value.sg_name].id
+  type              = "egress"
 }
+

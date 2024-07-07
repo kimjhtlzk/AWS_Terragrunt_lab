@@ -21,10 +21,10 @@ dependency "iam_custom_role" {
 
 inputs = {
   instance_profile = [
-    {
-      name  = "pf-ec2-readonly"
-      role  = "EC2_ReadOnly"
-    },
+    # {
+    #   name  = "pf-ec2-readonly"
+    #   role  = "EC2_ReadOnly"
+    # },
 
 
   ]

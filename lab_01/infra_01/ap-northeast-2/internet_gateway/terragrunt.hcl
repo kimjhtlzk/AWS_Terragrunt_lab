@@ -23,13 +23,13 @@ dependency "vpc" {
 
 inputs = {
   igw = [
-    {
-      name    = "igw-rnd-vpc-1"
-      vpc     = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
-    },
-    {
-      name    = "igw-rnd-vpc-2"
-      vpc     = null
-    },
+    # {
+    #   name    = "igw-rnd-vpc-1"
+    #   vpc     = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
+    # },
+    # {
+    #   name    = "igw-rnd-vpc-2"
+    #   vpc     = null
+    # },
   ]
 }

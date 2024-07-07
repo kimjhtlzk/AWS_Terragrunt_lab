@@ -45,40 +45,40 @@ dependency "vpc_peering" {
 
 inputs = {
   route_table = [
-    {
-      name    = "ngw-rnd-vpc-1"
-      vpc     = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
-      subnets = [
-        dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-1"],
-        dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-2"],
-      ]
-      rule = {
-        1 ={
-          cidr_block      = "0.0.0.0/0"
-          resource_type   = "igw" # "igw" or "nat" or "peering"
-          resource_name   = dependency.internet_gateway.outputs.igw_id["igw-rnd-vpc-1"]
-        }
-        2 ={
-          cidr_block      = "192.168.0.0/16"
-          resource_type   = "ngw" # "igw" or "nat" or "peering"
-          resource_name   = dependency.nat_gateway.outputs.ngw_id["ngw-rnd-vpc-1"]
-        }
-      }
-    },
-    {
-      name    = "ngw-rnd-vpc-2"
-      vpc     = dependency.vpc.outputs.vpc_id["rnd-vpc-2"]["vpc_id"]
-      subnets = [
-        dependency.vpc.outputs.subnets_ids["rnd-vpc-2-subnet-2"],
-      ]
-      rule = {
-        1 ={
-          cidr_block      = "10.0.0.0/16"
-          resource_type   = "peering" # "igw" or "nat" or "peering"
-          resource_name   = dependency.vpc_peering.outputs.vpc_peering_id["rnd-peer-01"]
-        }
-      }
-    },
+    # {
+    #   name    = "ngw-rnd-vpc-1"
+    #   vpc     = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
+    #   subnets = [
+    #     dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-1"],
+    #     dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-2"],
+    #   ]
+    #   rule = {
+    #     1 ={
+    #       cidr_block      = "0.0.0.0/0"
+    #       resource_type   = "igw" # "igw" or "nat" or "peering"
+    #       resource_name   = dependency.internet_gateway.outputs.igw_id["igw-rnd-vpc-1"]
+    #     }
+    #     2 ={
+    #       cidr_block      = "192.168.0.0/16"
+    #       resource_type   = "ngw" # "igw" or "nat" or "peering"
+    #       resource_name   = dependency.nat_gateway.outputs.ngw_id["ngw-rnd-vpc-1"]
+    #     }
+    #   }
+    # },
+    # {
+    #   name    = "ngw-rnd-vpc-2"
+    #   vpc     = dependency.vpc.outputs.vpc_id["rnd-vpc-2"]["vpc_id"]
+    #   subnets = [
+    #     dependency.vpc.outputs.subnets_ids["rnd-vpc-2-subnet-2"],
+    #   ]
+    #   rule = {
+    #     1 ={
+    #       cidr_block      = "10.0.0.0/16"
+    #       resource_type   = "peering" # "igw" or "nat" or "peering"
+    #       resource_name   = dependency.vpc_peering.outputs.vpc_peering_id["rnd-peer-01"]
+    #     }
+    #   }
+    # },
 
 
 

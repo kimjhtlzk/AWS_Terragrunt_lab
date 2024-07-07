@@ -13,12 +13,12 @@ locals {
 
 inputs = {
   eip = [
-    {
-      name  = "rnd-eip-1"
-    },
-    {
-      name  = "rnd-eip-2"
-    },
+    # {
+    #   name  = "rnd-eip-1"
+    # },
+    # {
+    #   name  = "rnd-eip-2"
+    # },
 
 
   ]

@@ -22,19 +22,19 @@ dependency "vpc" {
 
 inputs = {
   elasticache_subnet_group = [
-    {
-      name    = "rnd-subnetgroup-1"
-      subnets = [
-                  dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-1"],
-                  dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-2"],
-                ]
-    },
-    {
-      name    = "rnd-subnetgroup-2"
-      subnets = [
-                  dependency.vpc.outputs.subnets_ids["rnd-vpc-2-subnet-2"],
-                ]
-    },
+    # {
+    #   name    = "rnd-subnetgroup-1"
+    #   subnets = [
+    #               dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-1"],
+    #               dependency.vpc.outputs.subnets_ids["rnd-vpc-1-subnet-2"],
+    #             ]
+    # },
+    # {
+    #   name    = "rnd-subnetgroup-2"
+    #   subnets = [
+    #               dependency.vpc.outputs.subnets_ids["rnd-vpc-2-subnet-2"],
+    #             ]
+    # },
   ]
 }
 

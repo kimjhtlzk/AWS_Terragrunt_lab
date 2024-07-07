@@ -21,19 +21,19 @@ dependency "vpc" {
 
 inputs = {
   vpc_peer = [
-    {
-      peer_type         = "internal" # internal or external
-      target_project_id = null # only external
+    # {
+    #   peer_type         = "internal" # internal or external
+    #   target_project_id = null # only external
 
-      name          = "rnd-peer-01"
-      vpc           = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
-      target_vpc    = dependency.vpc.outputs.vpc_id["rnd-vpc-2"]["vpc_id"]
-      other_region  = null # null or region name. if same region -> null
+    #   name          = "rnd-peer-01"
+    #   vpc           = dependency.vpc.outputs.vpc_id["rnd-vpc-1"]["vpc_id"]
+    #   target_vpc    = dependency.vpc.outputs.vpc_id["rnd-vpc-2"]["vpc_id"]
+    #   other_region  = null # null or region name. if same region -> null
 
-      accepter_dns_resolution   = true
-      requester_dns_resolution  = true
+    #   accepter_dns_resolution   = true
+    #   requester_dns_resolution  = true
 
-    },
+    # },
 
   ]
 }

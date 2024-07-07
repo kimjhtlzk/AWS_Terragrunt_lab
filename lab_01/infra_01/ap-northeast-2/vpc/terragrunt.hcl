@@ -48,23 +48,23 @@ inputs = {
         },
       ]
     },
-    {
-      name                = "rnd-vpc-2"
-      cidr_block          = "10.13.0.0/16"
-      use_ipv6_cidr_block = false
-      subnets = [
-        {
-          subnet_name       = "rnd-vpc-2-subnet-2"
-          subnet_cidr       = "10.13.11.0/24"
-          ipv6_cidr_block   = null  # ipv6 cidr (or) null
-          availability_zone = "${local.aws_region}a"
-          autoassign_public = "true"
-          tags = {
-            "kubernetes.io/role/internal-eld" = "1"
-          }
-        },
-      ]
-    },
+    # {
+    #   name                = "rnd-vpc-2"
+    #   cidr_block          = "10.13.0.0/16"
+    #   use_ipv6_cidr_block = false
+    #   subnets = [
+    #     {
+    #       subnet_name       = "rnd-vpc-2-subnet-2"
+    #       subnet_cidr       = "10.13.11.0/24"
+    #       ipv6_cidr_block   = null  # ipv6 cidr (or) null
+    #       availability_zone = "${local.aws_region}a"
+    #       autoassign_public = "true"
+    #       tags = {
+    #         "kubernetes.io/role/internal-eld" = "1"
+    #       }
+    #     },
+    #   ]
+    # },
   ]
 }
 
