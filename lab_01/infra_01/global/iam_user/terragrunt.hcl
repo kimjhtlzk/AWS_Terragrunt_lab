@@ -5,7 +5,7 @@ terraform {
 include "root" {
   path = find_in_parent_folders()
 }
- 
+
 locals {
   aws_region = read_terragrunt_config(find_in_parent_folders("region.hcl")).locals.aws_region
 }
